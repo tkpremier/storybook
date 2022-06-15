@@ -35,23 +35,30 @@
 		flex-flow: row nowrap;
 		height: 100%;
 	}
+	&Wrapper {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+	}
 }
 
-.arrow {
-	top: calc(50% - 15px);
-	@include override-button-defaults;
-	border-top: 2px solid #323232;
-	border-left: 2px solid #323232;
-	height: 30px;
-	position: absolute;
-	width: 30px;
-	outline: none;
-	z-index: 2;
-	&Previous {
-		left: 0;
-	}
-	&Next {
-		right: 0;
+.carousel {
+	&Track {
+		display: flex;
+		list-style: none;
+		padding: 0;
+		flex-flow: row nowrap;
+		&IsAnimating {
+			transition: transform 500ms ease;
+		}
+		> * {
+			float: left;
+			flex: 0 0 auto;
+			box-sizing: border-box;
+			padding: 10px;
+			display: flex;
+			justify-content: center;
+		}
 	}
 }
 
@@ -75,6 +82,10 @@
 		border-top: 2px solid #fff;
 		border-left: 2px solid #fff;
 		margin-top: -14px;
+	}
+	&IsDisabled {
+		opacity: 0.5;
+		cursor: not-allowed;
 	}
 	&Previous {
 		left: 0;
